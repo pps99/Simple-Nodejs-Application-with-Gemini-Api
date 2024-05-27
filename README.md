@@ -1,1 +1,1 @@
-# Simple-Nodejs-Application-with-Gemini-Api
+# Nodejs-Application-with-Gemini-Api-Gemini

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gemini API App</title>
+  <style>
+    .loading {
+      display: none;
+    }
+
+    .card-container {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container mt-4">
+    <div class="card card-container">
+      <div class="card-body">
+        <h5 class="card-title text-center mb-4">Welcome to My Simple Gemini API App</h5>
+        <form id="geminiForm" action="/gemini" method="post">
+          <div class="mb-3">
+            <label for="exampleInputUserreq" class="form-label">Enter Your Request:</label>
+            <input type="text" class="form-control" id="exampleInputUserreq" name="userreq" aria-describedby="userreqHelp" required>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary">Get Response</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="text-center mt-4">
+      <div class="loading" id="loadingSpinner">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </div>
+
+    <% if (response) { %>
+    <div class="card mt-4">
+      <div class="card-body">
+        <h5 class="card-title">User Request:</h5>
+        <p class="card-text"><%= request %></p>
+        <h5 class="card-title">AI Response:</h5>
+        <p class="card-text"><%= response %></p>
+      </div>
+    </div>
+    <% } %>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+967K8y5QBLey6M8qK77jR+P/Ev5J" crossorigin="anonymous"></script>
+  <script>
+    document.getElementById("geminiForm").addEventListener("submit", function() {
+      document.getElementById("loadingSpinner").style.display = "block";
+    });
+  </script>
+</body>
+
+</html>
